@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Midnight Surprise ❤️</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:'Segoe UI', sans-serif;
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      color:#fff;
+      text-align:center;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .screen{
+      display:none;
+      padding:25px;
+      max-width:420px;
+    }
+
+    .active{
+      display:block;
+      animation:fade 1.5s ease;
+    }
+
+    img{
+      width:100%;
+      border-radius:20px;
+      margin-bottom:10px;
+    }
+
+    button{
+      padding:12px 25px;
+      border:none;
+      border-radius:30px;
+      background:#fff;
+      color:#ff4f7b;
+      font-size:1rem;
+      cursor:pointer;
+      margin-top:15px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.15);
+      backdrop-filter:blur(10px);
+      padding:30px;
+      border-radius:20px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    h1{font-size:2rem;}
+    h2{font-weight:normal;}
+    p{line-height:1.6;}
+
+    @keyframes fade{
+      from{opacity:0; transform:scale(0.9);}
+      to{opacity:1; transform:scale(1);}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Screen 1 : Home -->
+  <div class="screen active" id="s1">
+    <img src="photo.jpg" alt="Her Photo">
+
+    <p style="margin-top:8px; font-size:1.1rem; font-weight:bold;">
+      Tonni Islam
+    </p>
+
+    <p>
+      রাত ১২টার একটা ছোট্ট সারপ্রাইজ…<br>
+      চোখ বন্ধ করে লিংকে ক্লিক করো ❤️🎂
+    </p>
+
+    <button onclick="next(2)">Continue</button>
+  </div>
+
+  <!-- Screen 2 : Birthday Wish -->
+  <div class="screen" id="s2">
+    <div class="card">
+      <h1>🎂 Happy Birthday 🎂</h1>
+      <h2>প্রিয়তমা ❤️</h2>
+
+      <p>
+        আজকের দিনটা তোমার, ঠিক যেমন আমার প্রতিটা ভাবনায় তুমি।<br>
+        তোমার হাসিটাই আমার সবচেয়ে প্রিয় শান্তি।<br>
+        দোয়া করি—তোমার সব স্বপ্ন সত্যি হোক,<br>
+        আর আমি যেন সবসময় তোমার পাশেই থাকতে পারি।
+      </p>
+
+      <p style="font-weight:bold;">I Love You 💖</p>
+    </div>
+  </div>
+
+  <script>
+    function next(n){
+      document.querySelectorAll('.screen')
+        .forEach(s => s.classList.remove('active'));
+      document.getElementById('s'+n).classList.add('active');
+    }
+  </script>
+
+  <!-- Optional Music (না দিলেও সমস্যা নেই) -->
+  <audio id="bgm" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    document.addEventListener('click', () => {
+      const music = document.getElementById('bgm');
+      if (music && music.paused) music.play();
+    }, { once: true });
+  </script>
+
+</body>
+</html>
